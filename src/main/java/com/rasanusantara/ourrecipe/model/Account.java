@@ -28,6 +28,17 @@ public abstract class Account {
     // POLYMORPHISM: Method abstrak yang akan di-override oleh class turunannya
     public abstract String getRolePermissions();
 
+    // Return role type berdasarkan class instance
+    @com.fasterxml.jackson.annotation.JsonProperty("role_type")
+    public String getRoleType() {
+        if (this instanceof Admin) {
+            return "ADMIN";
+        } else if (this instanceof RegularUser) {
+            return "USER";
+        }
+        return "UNKNOWN";
+    }
+
     // ENCAPSULATION: Menggunakan Getter & Setter untuk mengakses data private
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
