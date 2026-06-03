@@ -1,0 +1,12 @@
+com\rasanusantara\ourrecipe\model\Admin.class
+com\rasanusantara\ourrecipe\service\RecipeService.class
+com\rasanusantara\ourrecipe\OurrecipeApplication.class
+com\rasanusantara\ourrecipe\service\RecipeServiceImpl.class
+com\rasanusantara\ourrecipe\model\RegularUser.class
+com\rasanusantara\ourrecipe\model\Comment.class
+com\rasanusantara\ourrecipe\model\Account.class
+com\rasanusantara\ourrecipe\repository\AccountRepository.class
+com\rasanusantara\ourrecipe\controller\RecipeController.class
+com\rasanusantara\ourrecipe\model\Recipe.class
+com\rasanusantara\ourrecipe\repository\RecipeRepository.class
+com\rasanusantara\ourrecipe\controller\AuthController.class
