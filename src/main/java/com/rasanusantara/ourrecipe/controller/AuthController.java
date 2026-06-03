@@ -39,4 +39,17 @@ public class AuthController {
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(accountRepository.save(newUser));
     }
+
+    // Endpoint untuk Register Admin (dengan simple auth key untuk keamanan dasar)
+    @PostMapping("/register-admin")
+    public ResponseEntity<Account> registerAdmin(@RequestBody Admin newAdmin, @RequestParam(required = false) String adminKey) {
+        // Validasi admin key (untuk keamanan dasar, sebaiknya ganti dengan JWT/OAuth di production)
+        if (adminKey == null || !adminKey.equals("admin_secret_key_2026")) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Admin key tidak valid");
+        }
+        if (accountRepository.findByEmail(newAdmin.getEmail()).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email sudah terdaftar");
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(accountRepository.save(newAdmin));
+    }
 }
