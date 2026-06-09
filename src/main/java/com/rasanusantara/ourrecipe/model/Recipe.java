@@ -38,6 +38,10 @@ public class Recipe {
     @JoinColumn(name = "user_id", nullable = false)
     private RegularUser author;
 
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
+    @com.fasterxml.jackson.annotation.JsonIgnore
+    private java.util.List<Comment> comments;
+
     // Getter dan Setter
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -71,4 +75,7 @@ public class Recipe {
 
     public RegularUser getAuthor() { return author; }
     public void setAuthor(RegularUser author) { this.author = author; }
+
+    public java.util.List<Comment> getComments() { return comments; }
+    public void setComments(java.util.List<Comment> comments) { this.comments = comments; }
 }
